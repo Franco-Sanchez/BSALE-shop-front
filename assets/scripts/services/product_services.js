@@ -8,6 +8,6 @@ function ProductServices() {
   return ProductServices.instance
 }
 
-ProductServices.prototype.list = () => apiFetch(`${BASE_URL}`)
+ProductServices.prototype.list = () => apiFetch(`${BASE_URL}/products`)
 
-export default Product;
+export default ProductServices;

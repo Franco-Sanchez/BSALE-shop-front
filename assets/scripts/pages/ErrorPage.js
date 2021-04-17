@@ -1,15 +1,15 @@
-function OrderSuccess(parentSelector) {
+function ErrorPage(parentSelector) {
   this.parentSelector = parentSelector;
   this.parentElement = document.querySelector(parentSelector);
   this.toString = function() {
     return `
-      
+
     `
   }
 }
 
-OrderSuccess.prototype.render = function() {
+ErrorPage.prototype.render = function() {
   this.parentElement.innerHTML = this;
 }
 
-export default OrderSuccess;
+export default ErrorPage;
