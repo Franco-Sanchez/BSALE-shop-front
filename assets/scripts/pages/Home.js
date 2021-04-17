@@ -10,9 +10,11 @@ function Home(parentSelector) {
   this.card = new Card();
   this.toString = function() {
     return `
-      ${this.header.render()}
-      ${this.categoriesList.render()}
-      ${this.card.render()}
+      <div class="container">
+        ${this.header.render()}
+        ${this.categoriesList.render()}
+        ${this.card.render()}
+      </div>
     `
   }
 }

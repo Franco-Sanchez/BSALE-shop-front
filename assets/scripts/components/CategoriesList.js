@@ -6,4 +6,6 @@ function CategoriesList() {
   }
 }
 
+CategoriesList.prototype.render = function() { return this; }
+
 export default CategoriesList;

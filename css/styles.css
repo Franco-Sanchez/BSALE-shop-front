@@ -1,1 +1,96 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 10px 0;
+  -webkit-box-shadow: 0px 22px 4px -21px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 22px 4px -21px rgba(0, 0, 0, 0.75);
+}
+
+.header__title {
+  color: #737373;
+  cursor: pointer;
+}
+
+.header__cart-icon {
+  border: none;
+  background-color: transparent;
+}
+
+.header__cart-icon i {
+  color: #616161;
+  font-size: 16px;
+}
+
+.form__input, .form__button {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #1a99e2;
+  outline: none;
+}
+
+.form__input {
+  width: 300px;
+}
+
+.form__input, .form__input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.form__input, .form__input:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.form__input, .form__input::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.form__input, .form__input::placeholder {
+  font-size: 14px;
+}
+
+.form__button {
+  height: 28px;
+  background-color: transparent;
+}
+/*# sourceMappingURL=styles.css.map */

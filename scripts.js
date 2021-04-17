@@ -7,7 +7,7 @@ async function init() {
   try {
     // const products = new ProductServices();
     // STORE.products = await products.list(); 
-    home.render();
+    home.render()
   } catch (error) {
     
   }

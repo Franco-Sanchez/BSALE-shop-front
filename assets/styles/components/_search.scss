@@ -1,0 +1,22 @@
+.form {
+
+  &__input, &__button {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid $skyblue;
+    outline: none;
+  }
+
+  &__input {
+    width: 300px;
+
+    &, &::placeholder {
+      font-size: 14px;
+    }
+  }
+
+  &__button {
+    height: 28px;
+    background-color: transparent;
+  }
+}

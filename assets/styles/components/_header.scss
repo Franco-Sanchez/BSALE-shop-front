@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: $white;
+  padding: 10px 0;
+  box-shadow: 0px 22px 4px -21px rgba(0,0,0,0.75);
+
+  &__title {
+    color: $gray;
+    cursor: pointer;
+  }
+
+  &__cart-icon {
+    border: none;
+    background-color: transparent;
+
+    & i {
+      color: $grayStrong;
+      font-size: 16px;
+    }
+  }
+}
+
+@import './search';
