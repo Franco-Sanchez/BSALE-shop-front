@@ -215,6 +215,22 @@ a {
   background-color: #fff;
 }
 
+.products__item__img-box, .products__item__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.products__item__img-box {
+  height: 450px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .products__item__img {
   width: 100%;
 }
@@ -226,6 +242,7 @@ a {
 
 .products__item__name {
   font-size: 18px;
+  height: 44px;
 }
 
 .products__item__price {

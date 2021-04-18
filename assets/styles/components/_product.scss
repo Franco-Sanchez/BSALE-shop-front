@@ -1,10 +1,19 @@
 .products__item {
-  // padding: 0 10px;
   box-shadow: 10px 10px 7px -11px rgba(0,0,0,0.75);
 
   &__data, &__cart {
     padding: 20px;
     background-color: $white;
+  }
+
+  &__img-box, &__name {
+    display: flex;
+    align-items: center;
+  }
+
+  &__img-box {
+    height: 450px;
+    justify-content: center;
   }
 
   &__img {
@@ -18,6 +27,7 @@
 
   &__name {
     font-size: 18px;
+    height: 44px;
   }
 
   &__price {

@@ -3,7 +3,9 @@ function Product(item) {
     return `
       <article class="products__item">
         <div class="products__item__data">
-          <img class="products__item__img" src=${item.url_image} alt=${item.name} />
+          <div class="products__item__img-box">
+            <img class="products__item__img" src=${item.url_image} alt=${item.name} />
+          </div>
           <h3 class="products__item__name">${item.name}</h3>
         </div>
         <div class="products__item__cart">
