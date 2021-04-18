@@ -1,5 +1,5 @@
-import Card from "../components/Card.js";
-import CategoriesList from "../components/CategoriesList.js";
+import CategoriesList from "../components/containers/CategoriesList.js";
+import ProductsList from "../components/containers/ProductsList.js";
 import Header from "../components/Header.js";
 
 function Home(parentSelector) {
@@ -7,13 +7,15 @@ function Home(parentSelector) {
   this.parentElement = document.querySelector(parentSelector);
   this.header = new Header();
   this.categoriesList = new CategoriesList();
-  this.card = new Card();
+  this.productsList = new ProductsList();
   this.toString = function() {
     return `
       <div class="container">
         ${this.header.render()}
-        ${this.categoriesList.render()}
-        ${this.card.render()}
+        <section class="container__main-section">
+          ${this.categoriesList.render()}
+          ${this.productsList.render()}
+        </section>
       </div>
     `
   }

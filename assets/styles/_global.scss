@@ -1,7 +1,9 @@
 $white: #fff;
 $gray: #737373;
+$grayLight: #f7e9ef;
 $grayStrong: #616161;
 $skyblue: #1a99e2;
+$orange: #ff5c1a;
 
 * {
   margin: 0;
@@ -16,10 +18,6 @@ body {
   background-color: #f1f1f1;
 }
 
-.container {
-  min-height: 100vh;
-}
-
 button {
   cursor: pointer;
 }
@@ -31,3 +29,4 @@ li {
 a {
   text-decoration: none;
 }
+
