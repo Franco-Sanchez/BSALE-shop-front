@@ -1,20 +1,23 @@
 import Search from "./Search.js";
 
-function Header() {
-  this.search = new Search();
+function Header(parentSelector) {
+  this.parentSelector = parentSelector;
+  this.parentElement = document.querySelector(parentSelector);
   this.toString = function() {
     return `
-      <header class="header">
-        <h1 class="header__title">Bsale Test</h1>
-        ${this.search.render()}
-        <button type="button" class="header__cart-icon">
-          <i class="fas fa-shopping-cart"></i>
-        </button>
-      </header>
+      <h1 class="header__title">Bsale Test</h1>
+      <form class="form js-form"></form>
+      <button type="button" class="header__cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
     `
   }
 }
 
-Header.prototype.render = function() { return this; } 
+Header.prototype.render = function () {
+  this.parentElement.innerHTML = this;
+  const search = new Search('.js-form');
+  search.render();
+}
 
 export default Header;

@@ -1,3 +1,4 @@
+import STORE from "../app/store.js";
 import Home from "../pages/Home.js";
 
 function Category(parentSelector, item, index) {
@@ -22,6 +23,7 @@ Category.prototype.selectCategory = function() {
   const button = this.parentElement.querySelector(`.js-category-item-${this.indexItem}`);
   button.addEventListener('click', () => {
     const home = new Home('.js-app', this.item);
+    STORE.searchProducts = null;
     home.render();
   })
 }

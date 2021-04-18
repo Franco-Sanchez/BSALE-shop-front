@@ -1,6 +1,7 @@
 const STORE = {
   products : [],
-  categories: []
+  categories: [],
+  searchProducts: null
 }
 
 export default STORE;

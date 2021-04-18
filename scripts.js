@@ -7,7 +7,8 @@ async function init() {
   try {
     const products = new ProductServices();
     STORE.products = await products.list();
-    STORE.categories = [ 'all', ...new Set(STORE.products.map(product => product.category))]
+    STORE.categories = [ 'all', ...new Set(STORE.products.map(product => product.category))];
+    STORE.searchProducts = null;
     home.render();
   } catch (error) {
     //

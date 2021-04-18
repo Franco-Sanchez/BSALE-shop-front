@@ -4,14 +4,14 @@ import Header from "../components/Header.js";
 import Product from "../components/Product.js";
 
 function Home(parentSelector, category = "all") {
+  console.log(category);
   this.parentSelector = parentSelector;
   this.parentElement = document.querySelector(parentSelector);
   this.category = category;
-  this.header = new Header();
   this.toString = function () {
     return `
       <div class="container">
-        ${this.header.render()}
+        <header class="header js-header"></header>
         <section class="container__main-section">
           <div class="categories js-categories"></div>
           ${this.renderTitle()}
@@ -24,6 +24,8 @@ function Home(parentSelector, category = "all") {
 
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
+  const header = new Header('.js-header');
+  header.render();
   const categories = this.renderCategories(".js-categories");
   categories.forEach((category) => category.addEventListeners());
   const products = this.renderProducts(".js-products");
@@ -53,8 +55,11 @@ Home.prototype.renderProducts = function (parentSelector) {
 Home.prototype.renderTitle = function() {
   const general = 'Todos nuestros productos';
   const specific = `Sección ${this.category}`;
-
-  return `<h3 class="container__main-section__title">${this.category === 'all' ? general : specific}</h3>`
+  return `
+    <h3 class="container__main-section__title">
+      ${this.category === 'all' ? general : specific}
+    </h3>
+  `
 }
 
 export default Home;
