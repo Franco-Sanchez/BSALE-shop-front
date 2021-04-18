@@ -1,7 +1,7 @@
 function Product(item) {
   this.toString = function() {
     return `
-      <article class="products__item">
+      <article class="products__item js-product-item-${item.id}">
         <div class="products__item__data">
           <div class="products__item__img-box">
             <img class="products__item__img" src=${item.url_image} alt=${item.name} />
@@ -18,6 +18,9 @@ function Product(item) {
     `
   }
 }
- Product.prototype.render = function() { return this; }
+
+Product.prototype.addEventListeners = function() {
+  //
+}
 
 export default Product;

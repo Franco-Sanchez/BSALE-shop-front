@@ -1,7 +1,8 @@
 import STORE from "../../app/store.js";
 import Product from '../Product.js';
 
-function ProductsList() {
+function ProductsList(category) {
+  console.log(category);
   this.toString = function() {
     return `
       <div class="products">

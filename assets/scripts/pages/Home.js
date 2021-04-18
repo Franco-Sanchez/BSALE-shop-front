@@ -1,28 +1,53 @@
-import CategoriesList from "../components/containers/CategoriesList.js";
-import ProductsList from "../components/containers/ProductsList.js";
+import STORE from "../app/store.js";
+import Category from "../components/Category.js";
 import Header from "../components/Header.js";
+import Product from "../components/Product.js";
 
-function Home(parentSelector) {
+function Home(parentSelector, category = "all") {
   this.parentSelector = parentSelector;
   this.parentElement = document.querySelector(parentSelector);
+  this.category = category;
   this.header = new Header();
-  this.categoriesList = new CategoriesList();
-  this.productsList = new ProductsList();
-  this.toString = function() {
+  this.toString = function () {
     return `
       <div class="container">
         ${this.header.render()}
         <section class="container__main-section">
-          ${this.categoriesList.render()}
-          ${this.productsList.render()}
+          <div class="categories js-categories"></div>
+          <div class="products js-products"></div>
         </section>
       </div>
-    `
-  }
+    `;
+  };
 }
 
-Home.prototype.render = function() {
+Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
-}
+  const categories = this.renderCategories(".js-categories");
+  categories.forEach((category) => category.addEventListeners());
+  const products = this.renderProducts(".js-products");
+  products.forEach((product) => product.addEventListeners());
+};
+
+Home.prototype.renderCategories = function (parentSelector) {
+  const container = this.parentElement.querySelector(parentSelector);
+  const categories = STORE.categories.map(
+    (category, index) => new Category(".js-categories", category, index)
+  );
+  container.innerHTML = categories.join("");
+  return categories;
+};
+
+Home.prototype.renderProducts = function (parentSelector) {
+  console.log(this.category);
+  const container = this.parentElement.querySelector(parentSelector);
+  const filterProducts =
+    this.category === "all"
+      ? STORE.products
+      : STORE.products.filter((product) => product.category === this.category);
+  const products = filterProducts.map(product => new Product(product));
+  container.innerHTML = products.join('');
+  return filterProducts;
+};
 
 export default Home;
