@@ -1,4 +1,5 @@
 import STORE from "../../app/store.js";
+import Product from '../Product.js';
 
 function ProductsList() {
   this.toString = function() {
