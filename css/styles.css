@@ -43,6 +43,12 @@ a {
   padding-bottom: 10px;
 }
 
+.container__main-section__title {
+  margin-bottom: 15px;
+  font-size: 48px;
+  color: #737373;
+}
+
 .header {
   width: 100%;
   display: -webkit-box;

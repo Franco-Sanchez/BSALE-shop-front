@@ -1,62 +1,70 @@
-.products__item {
-  box-shadow: 10px 10px 7px -11px rgba(0,0,0,0.75);
+.products {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: center;
+  gap: 20px;
 
-  &__data, &__cart {
-    padding: 20px;
-    background-color: $white;
-  }
-
-  &__img-box, &__name {
-    display: flex;
-    align-items: center;
-  }
-
-  &__img-box {
-    height: 450px;
-    justify-content: center;
-  }
-
-  &__img {
-    width: 100%;
-  }
-
-  &__name, &__price {
-    font-weight: 400;
-    color: $gray;
-  }
-
-  &__name {
-    font-size: 18px;
-    height: 44px;
-  }
-
-  &__price {
-    font-size: 16px;
-  }
-
-  &__cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid $gray;
-  }
-
-  &__cart-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: none;
-    background-color: $grayStrong;
-    cursor: pointer;
-    outline: none;
-    transition: all ease .5s;
-
-    &:hover {
-      background-color: $orange;
+  &__item {
+    box-shadow: 10px 10px 7px -11px rgba(0,0,0,0.75);
+  
+    &__data, &__cart {
+      padding: 20px;
+      background-color: $white;
     }
-
-    & i {
-      color: $white;
+  
+    &__img-box, &__name {
+      display: flex;
+      align-items: center;
+    }
+  
+    &__img-box {
+      height: 450px;
+      justify-content: center;
+    }
+  
+    &__img {
+      width: 100%;
+    }
+  
+    &__name, &__price {
+      font-weight: 400;
+      color: $gray;
+    }
+  
+    &__name {
+      font-size: 18px;
+      height: 44px;
+    }
+  
+    &__price {
+      font-size: 16px;
+    }
+  
+    &__cart {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid $gray;
+    }
+  
+    &__cart-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background-color: $grayStrong;
+      cursor: pointer;
+      outline: none;
+      transition: all ease .5s;
+  
+      &:hover {
+        background-color: $orange;
+      }
+  
+      & i {
+        color: $white;
+      }
     }
   }
 }

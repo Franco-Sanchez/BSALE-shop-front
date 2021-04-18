@@ -6,8 +6,8 @@ async function init() {
   const home = new Home('.js-app');
   try {
     const products = new ProductServices();
-    STORE.products = await products.list(); 
-    STORE.categories = [ 'all', ...new Set(STORE.products.map(product => product.category))] 
+    STORE.products = await products.list();
+    STORE.categories = [ 'all', ...new Set(STORE.products.map(product => product.category))]
     home.render();
   } catch (error) {
     //

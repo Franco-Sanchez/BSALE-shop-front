@@ -1,15 +1,21 @@
-.categories__item {
-  background-color: $orange;
-  text-transform: capitalize;
-  border: none;
-  color: $white;
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: all ease .5s;
-  outline: none;
+.categories {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
 
-  &:hover {
-    background-color: $gray;
+  &__item {
+    background-color: $orange;
+    text-transform: capitalize;
+    border: none;
+    color: $white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all ease .5s;
+    outline: none;
+  
+    &:hover {
+      background-color: $gray;
+    }
   }
 }

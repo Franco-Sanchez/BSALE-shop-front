@@ -7,7 +7,7 @@ function Category(parentSelector, item, index) {
   this.item = item
   this.toString = function() {
     return `
-      <button class="categories__item js-category-item-${this.indexItem}" type="button" value=${item}>
+      <button class="categories__item js-category-item-${this.indexItem}" type="button">
         ${item}
       </button>
     `
@@ -21,7 +21,7 @@ Category.prototype.addEventListeners = function() {
 Category.prototype.selectCategory = function() {
   const button = this.parentElement.querySelector(`.js-category-item-${this.indexItem}`);
   button.addEventListener('click', () => {
-    const home = new Home('.js-app', button.value);
+    const home = new Home('.js-app', this.item);
     home.render();
   })
 }
