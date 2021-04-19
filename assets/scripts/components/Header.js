@@ -1,5 +1,6 @@
 import Home from "../pages/Home.js";
 import Search from "./Search.js";
+import STORE from '../app/store.js';
 
 function Header(parentSelector) {
   this.parentSelector = parentSelector;
@@ -26,6 +27,7 @@ Header.prototype.returnHome = function() {
   const title = this.parentElement.querySelector('.js-header-title')
   title.addEventListener('click', () => {
     const home = new Home('.js-app', 'all');
+    STORE.searchProducts = null;
     home.render();
   })
 }

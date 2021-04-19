@@ -29,11 +29,13 @@ Search.prototype.searchForm = function() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const { query } = e.target
-    const products = new ProductServices();
-    const data = await products.search(query.value);
-    STORE.searchProducts = data;
-    const home = new Home('.js-app');
-    home.render();
+    if(query.value.split(' ').join('')) { // validacion para que no busque si solo hay espacios en blanco
+      const products = new ProductServices();
+      const data = await products.search(query.value);
+      STORE.searchProducts = data;
+      const home = new Home('.js-app');
+      home.render();
+    }
   })
 }
 

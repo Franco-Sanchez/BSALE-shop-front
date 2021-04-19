@@ -13,8 +13,9 @@ function Home(parentSelector, category = null) {
         <header class="header js-header"></header>
         <section class="container__main-section">
           <div class="categories js-categories"></div>
-          ${this.renderTitle()}
-          <div class="products js-products"></div>
+          <div class="container__status-box">
+            ${this.validateLengthSearch()}
+          </div>
         </section>
       </div>
     `;
@@ -64,7 +65,7 @@ Home.prototype.renderTitle = function () {
       ? `Hay ${lengthSearch} productos encontrados`
       : `Hay ${lengthSearch} producto encontrado`;
   return `
-    <h3 class="container__main-section__title">
+    <h3 class="container__title">
       ${
         this.category === "all"
           ? general
@@ -75,5 +76,16 @@ Home.prototype.renderTitle = function () {
     </h3>
   `;
 };
+
+Home.prototype.validateLengthSearch = function() {
+  if(Array.isArray(STORE.searchProducts) && STORE.searchProducts.length === 0) {
+    return `<h3 class="container__title">No se encontró el producto</h3>`
+  } else {
+    return `
+      ${this.renderTitle()}
+      <div class="products js-products"></div>
+    `
+  }
+}
 
 export default Home;

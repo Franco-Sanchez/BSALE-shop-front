@@ -43,10 +43,15 @@ a {
   padding-bottom: 10px;
 }
 
-.container__main-section__title {
+.container__status-box {
+  width: 100%;
+}
+
+.container__title {
   margin-bottom: 15px;
   font-size: 48px;
   color: #737373;
+  text-align: center;
 }
 
 .header {
