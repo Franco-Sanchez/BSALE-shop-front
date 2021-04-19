@@ -1,9 +1,9 @@
 const STORE = {
   products : [],
   categories: [],
+  cart: [],
   searchProducts: null,
-  loading: false,
-  cart: []
+  loading: false
 }
 
 export default STORE;
