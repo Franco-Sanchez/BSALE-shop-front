@@ -54,6 +54,20 @@ a {
   text-align: center;
 }
 
+.container__loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container__loading i {
+  font-size: 100px;
+  width: 5%;
+}
+
 .header {
   width: 100%;
   display: -webkit-box;

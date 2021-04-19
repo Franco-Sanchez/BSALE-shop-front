@@ -14,7 +14,12 @@ function Home(parentSelector, category = null) {
         <section class="container__main-section">
           <div class="categories js-categories"></div>
           <div class="container__status-box">
-            ${this.validateLengthSearch()}
+          ${this.validateLengthSearch()}
+          ${
+            STORE.loading
+              ? `<div class="container__loading"><i class="fas fa-spinner fa-pulse"></i></div>`
+              : ""
+          }
           </div>
         </section>
       </div>
@@ -67,25 +72,31 @@ Home.prototype.renderTitle = function () {
   return `
     <h3 class="container__title">
       ${
-        this.category === "all"
+        this.category === "all" && !STORE.loading
           ? general
           : lengthSearch > 0
           ? searchTitle
+          : STORE.loading
+          ? ""
           : specific
       }
     </h3>
   `;
 };
 
-Home.prototype.validateLengthSearch = function() {
-  if(Array.isArray(STORE.searchProducts) && STORE.searchProducts.length === 0) {
-    return `<h3 class="container__title">No se encontró el producto</h3>`
+Home.prototype.validateLengthSearch = function () {
+  if (
+    Array.isArray(STORE.searchProducts) &&
+    STORE.searchProducts.length === 0 &&
+    !STORE.loading
+  ) {
+    return `<h3 class="container__title">No se encontró el producto</h3>`;
   } else {
     return `
       ${this.renderTitle()}
       <div class="products js-products"></div>
-    `
+    `;
   }
-}
+};
 
 export default Home;

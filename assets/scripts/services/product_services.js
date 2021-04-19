@@ -10,6 +10,6 @@ function ProductServices() {
 
 ProductServices.prototype.list = () => apiFetch(`${BASE_URL}/products`);
 
-ProductServices.prototype.search = (query) => apiFetch(`${BASE_URL}/products/${query}`);
+ProductServices.prototype.search = (query) => apiFetch(`${BASE_URL}/products?name=${query}`);
 
 export default ProductServices;

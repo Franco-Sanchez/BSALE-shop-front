@@ -30,10 +30,13 @@ Search.prototype.searchForm = function() {
     e.preventDefault();
     const { query } = e.target
     if(query.value.split(' ').join('')) { // validacion para que no busque si solo hay espacios en blanco
+      const home = new Home('.js-app');
       const products = new ProductServices();
+      STORE.loading = true;
+      home.render();
       const data = await products.search(query.value);
       STORE.searchProducts = data;
-      const home = new Home('.js-app');
+      STORE.loading = false;
       home.render();
     }
   })
