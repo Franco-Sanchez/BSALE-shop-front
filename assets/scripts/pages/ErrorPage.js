@@ -3,7 +3,10 @@ function ErrorPage(parentSelector) {
   this.parentElement = document.querySelector(parentSelector);
   this.toString = function() {
     return `
-
+      <div class="container__error-box">
+        <img src="/assets/images/error.png" />
+        <h2>An error ocurred</h2>
+      </div>
     `
   }
 }

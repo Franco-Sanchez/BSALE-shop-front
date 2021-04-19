@@ -1,6 +1,7 @@
 import STORE from "../app/store.js";
 import ProductServices from "../services/product_services.js";
 import Home from '../pages/Home.js';
+import ErrorPage from "../pages/ErrorPage.js";
 
 function Search(parentSelector) {
   this.parentSelector = parentSelector;
@@ -30,14 +31,19 @@ Search.prototype.searchForm = function() {
     e.preventDefault();
     const { query } = e.target
     if(query.value.split(' ').join('')) { // validacion para que no busque si solo hay espacios en blanco
-      const home = new Home('.js-app');
-      const products = new ProductServices();
-      STORE.loading = true;
-      home.render();
-      const data = await products.search(query.value);
-      STORE.searchProducts = data;
-      STORE.loading = false;
-      home.render();
+      try {
+        const home = new Home('.js-app');
+        const products = new ProductServices();
+        STORE.loading = true;
+        home.render();
+        const data = await products.search(query.value);
+        STORE.searchProducts = data;
+        STORE.loading = false;
+        home.render();
+      } catch {
+        const error = new ErrorPage('.js-app');
+        error.render();
+      }
     }
   })
 }

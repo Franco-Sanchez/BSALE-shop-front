@@ -1,4 +1,5 @@
 import STORE from "./assets/scripts/app/store.js";
+import ErrorPage from "./assets/scripts/pages/ErrorPage.js";
 import Home from "./assets/scripts/pages/Home.js"
 import ProductServices from "./assets/scripts/services/product_services.js";
 
@@ -13,8 +14,9 @@ async function init() {
     STORE.searchProducts = null;
     STORE.loading = false;
     home.render();
-  } catch (error) {
-    //
+  } catch {
+    const error = new ErrorPage('.js-app');
+    error.render();
   }
 }
 

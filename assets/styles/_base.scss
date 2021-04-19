@@ -1,10 +1,20 @@
 .container {
   min-height: 100vh;
 
-  &__main-section {
+  &__main-section, &__loading, &__error-box {
     display: flex;
+  }
+
+  &__main-section, &__error-box {
     flex-direction: column;
     align-items: center;
+  }
+
+  &__loading, &__error-box {
+    justify-content: center;
+  }
+
+  &__main-section {
     padding-bottom: 10px;
   }
 
@@ -20,12 +30,18 @@
   }
 
   &__loading {
-    display: flex;
-    justify-content: center;
 
     & i {
       font-size: 100px;
       width: 5%;
+    }
+  }
+
+  &__error-box {
+    height: 100vh;
+  
+    & h2 {
+      font-size: 60px;
     }
   }
 }
