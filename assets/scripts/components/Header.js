@@ -1,3 +1,4 @@
+import Home from "../pages/Home.js";
 import Search from "./Search.js";
 
 function Header(parentSelector) {
@@ -5,7 +6,7 @@ function Header(parentSelector) {
   this.parentElement = document.querySelector(parentSelector);
   this.toString = function() {
     return `
-      <h1 class="header__title">Bsale Test</h1>
+      <h1 class="header__title js-header-title">Bsale Test</h1>
       <form class="form js-form"></form>
       <button type="button" class="header__cart-icon">
         <i class="fas fa-shopping-cart"></i>
@@ -18,6 +19,15 @@ Header.prototype.render = function () {
   this.parentElement.innerHTML = this;
   const search = new Search('.js-form');
   search.render();
+  this.returnHome();
+}
+
+Header.prototype.returnHome = function() {
+  const title = this.parentElement.querySelector('.js-header-title')
+  title.addEventListener('click', () => {
+    const home = new Home('.js-app', 'all');
+    home.render();
+  })
 }
 
 export default Header;

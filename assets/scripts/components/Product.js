@@ -19,8 +19,6 @@ function Product(item) {
   }
 }
 
-Product.prototype.addEventListeners = function() {
-  //
-}
+// Product.prototype.addEventListeners = function() {}
 
 export default Product;
