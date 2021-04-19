@@ -10,6 +10,7 @@ function Header(parentSelector) {
       <h1 class="header__title js-header-title">Bsale Test</h1>
       <form class="form js-form"></form>
       <button type="button" class="header__cart-icon">
+        <div class="header__cart-total">${STORE.cart.length}</div>
         <i class="fas fa-shopping-cart"></i>
       </button>
     `

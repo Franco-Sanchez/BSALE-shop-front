@@ -1,13 +1,16 @@
 .header {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 20px;
   background-color: $white;
   padding: 10px 0;
   margin-bottom: 15px;
   box-shadow: 0px 22px 4px -21px rgba(0,0,0,0.75);
+
+  &, &__cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__title {
     color: $gray;
@@ -18,11 +21,23 @@
     border: none;
     background-color: transparent;
     outline: none;
+    position: relative;
 
     & i {
       color: $grayStrong;
       font-size: 16px;
     }
+  }
+
+  &__cart-total {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $orange;
+    color: $white;
+    position: absolute;
+    top: -16px;
+    right: -8px;
   }
 }
 
