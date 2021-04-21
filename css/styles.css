@@ -325,11 +325,15 @@ a {
   transition: all ease .5s;
 }
 
-.products__item__cart-icon:hover {
+.products__item__cart-icon:hover:enabled {
   background-color: #ff5c1a;
 }
 
 .products__item__cart-icon i {
   color: #fff;
+}
+
+.products__item__cart-icon:disabled {
+  opacity: 0.5;
 }
 /*# sourceMappingURL=styles.css.map */

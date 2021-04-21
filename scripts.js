@@ -14,9 +14,10 @@ async function init() {
     STORE.searchProducts = null;
     STORE.loading = false;
     home.render();
-  } catch {
-    const error = new ErrorPage('.js-app');
-    error.render();
+  } catch(error) {
+    console.log(error);
+    const errorPage = new ErrorPage('.js-app');
+    errorPage.render();
   }
 }
 

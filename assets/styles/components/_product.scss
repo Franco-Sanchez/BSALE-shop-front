@@ -58,12 +58,16 @@
       outline: none;
       transition: all ease .5s;
   
-      &:hover {
+      &:hover:enabled {
         background-color: $orange;
       }
   
       & i {
         color: $white;
+      }
+
+      &:disabled {
+        opacity: 0.5;
       }
     }
   }

@@ -1,7 +1,7 @@
 const STORE = {
   products : [],
   categories: [],
-  cart: [],
+  cart: JSON.parse(localStorage.getItem('cart')) || [],
   searchProducts: null,
   loading: false
 }

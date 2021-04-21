@@ -33,7 +33,8 @@ Home.prototype.render = function () {
   header.render();
   const categories = this.renderCategories(".js-categories");
   categories.forEach((category) => category.addEventListeners());
-  this.renderProducts(".js-products");
+  const products = this.renderProducts(".js-products");
+  products.forEach((product) => product.addEventListeners());
 };
 
 Home.prototype.renderCategories = function (parentSelector) {
@@ -48,9 +49,9 @@ Home.prototype.renderCategories = function (parentSelector) {
 Home.prototype.renderProducts = function (parentSelector) {
   const container = this.parentElement.querySelector(parentSelector);
   const filterProducts = this.filterProducts();
-  const products = filterProducts.map((product) => new Product(product));
+  const products = filterProducts.map((product) => new Product('.js-products', this.category, product));
   container.innerHTML = products.join("");
-  return filterProducts;
+  return products;
 };
 
 Home.prototype.filterProducts = function () {
