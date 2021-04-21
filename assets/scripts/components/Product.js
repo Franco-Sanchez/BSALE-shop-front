@@ -36,18 +36,22 @@ Product.prototype.addProductToCart = function () {
     `.js-button-product-${this.item.id}`
   );
   button.addEventListener("click", () => {
-    const productsCart = [{ ...this.item, quantity: 1 }, ...STORE.cart];
+    const productsCart = [
+      {
+        ...this.item,
+        quantity: 1,
+        totalPrice: this.item.price * 1,
+      },
+      ...STORE.cart,
+    ];
     // Validate that if a product is in the cart it can not be added again
     const productUniques = productsCart.reduce((acc, curr) => {
       if (!acc[curr.id]) acc[curr.id] = curr;
       return acc;
     }, {});
 
-    localStorage.setItem(
-      "cart",
-      JSON.stringify([...Object.values(productUniques)])
-    );
     STORE.cart = [...Object.values(productUniques)];
+    localStorage.setItem("cart", JSON.stringify(STORE.cart));
     const home = new Home(".js-app", this.category);
     home.render();
   });
