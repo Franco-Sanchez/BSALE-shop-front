@@ -8,18 +8,18 @@ function CartItem(parentSelector, item) {
   this.toString = function () {
     return `
       <article class="cart__item">
-        <img src=${this.item.url_image} />
-        <div>
-          <h5>${this.item.name}</h5>
-          <p>${this.item.category}</p>
-          <p>$${this.item.totalPrice}</p>
+        <div class="cart__item__image" style="background-image: url(${this.item.url_image})"></div>
+        <div class="cart__item__data">
+          <h5 class="cart__item__name">${this.item.name}</h5>
+          <p class="cart__item__category">${this.item.category}</p>
+          <p class="cart__item__price">$${this.item.totalPrice}</p>
         </div>
-        <div>
-          <button class="js-delete-${this.item.id}">
+        <div class="cart__item__actions-box">
+          <button class="cart__item__button js-delete-${this.item.id}">
             <i class="fas fa-minus"></i>
           </button>
-          <p>${this.item.quantity}</p>
-          <button class="js-add-${this.item.id}">
+          <p class="cart__item__quantity">${this.item.quantity}</p>
+          <button class="cart__item__button js-add-${this.item.id}">
             <i class="fas fa-plus"></i>
           </button>
         </div>

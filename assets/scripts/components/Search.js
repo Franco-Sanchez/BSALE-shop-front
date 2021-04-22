@@ -40,9 +40,10 @@ Search.prototype.searchForm = function() {
         STORE.searchProducts = data;
         STORE.loading = false;
         home.render();
-      } catch {
-        const error = new ErrorPage('.js-app');
-        error.render();
+      } catch(error) {
+        console.log(error);
+        const errorPage = new ErrorPage('.js-app');
+        errorPage.render();
       }
     }
   })

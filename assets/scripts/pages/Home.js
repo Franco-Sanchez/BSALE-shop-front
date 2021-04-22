@@ -14,12 +14,12 @@ function Home(parentSelector, category = null) {
         <section class="container__main-section">
           <div class="categories js-categories"></div>
           <div class="container__status-box">
-          ${this.validateLengthSearch()}
-          ${
-            STORE.loading
-              ? `<div class="container__loading"><i class="fas fa-spinner fa-pulse"></i></div>`
-              : ""
-          }
+            ${this.validateLengthSearch()}
+            ${
+              STORE.loading
+                ? `<div class="container__loading"><i class="fas fa-spinner fa-pulse"></i></div>`
+                : ""
+            }
           </div>
         </section>
       </div>
@@ -34,7 +34,8 @@ Home.prototype.render = function () {
   const categories = this.renderCategories(".js-categories");
   categories.forEach((category) => category.addEventListeners());
   const products = this.renderProducts(".js-products");
-  products.forEach((product) => product.addEventListeners());
+  products && products.forEach((product) => product.addEventListeners());
+  
 };
 
 Home.prototype.renderCategories = function (parentSelector) {
@@ -48,10 +49,12 @@ Home.prototype.renderCategories = function (parentSelector) {
 
 Home.prototype.renderProducts = function (parentSelector) {
   const container = this.parentElement.querySelector(parentSelector);
-  const filterProducts = this.filterProducts();
-  const products = filterProducts.map((product) => new Product('.js-products', this.category, product));
-  container.innerHTML = products.join("");
-  return products;
+  if(container) {
+    const filterProducts = this.filterProducts();
+    const products = filterProducts.map((product) => new Product('.js-products', this.category, product));
+    container.innerHTML = products.join("");
+    return products;
+  }
 };
 
 Home.prototype.filterProducts = function () {
@@ -91,7 +94,12 @@ Home.prototype.validateLengthSearch = function () {
     STORE.searchProducts.length === 0 &&
     !STORE.loading
   ) {
-    return `<h3 class="container__title">No se encontró el producto</h3>`;
+    return `
+      <div class="container__not-found">
+        <i class="fas fa-search"></i>
+        <h3 class="container__title">No se encontró el producto</h3>
+      </div>
+    `;
   } else {
     return `
       ${this.renderTitle()}

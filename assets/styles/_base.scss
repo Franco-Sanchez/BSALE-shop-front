@@ -1,11 +1,11 @@
 .container {
   min-height: 100vh;
 
-  &__main-section, &__loading, &__error-box {
+  &__main-section, &__loading, &__error-box, &__not-found {
     display: flex;
   }
 
-  &__main-section, &__error-box {
+  &__main-section, &__error-box, &__not-found {
     flex-direction: column;
     align-items: center;
   }
@@ -42,6 +42,15 @@
   
     & h2 {
       font-size: 60px;
+    }
+  }
+
+  &__not-found {
+    gap: 15px;
+
+    & i {
+      font-size: 100px;
+      color: $gray;
     }
   }
 }
