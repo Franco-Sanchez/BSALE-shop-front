@@ -36,7 +36,6 @@ Product.prototype.addProductToCart = function () {
     `.js-button-product-${this.item.id}`
   );
   button.addEventListener("click", () => {
-    console.log(this.item);
     const productsCart = [
       {
         ...this.item,

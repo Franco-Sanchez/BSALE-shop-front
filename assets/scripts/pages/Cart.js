@@ -2,7 +2,7 @@ import STORE from "../app/store.js";
 import CartItem from "../components/CartItem.js";
 import Header from "../components/Header.js";
 import Home from "./Home.js";
-import OrderSuccess from './OrderSuccess.js';
+import OrderSuccess from "./OrderSuccess.js";
 
 function Cart(parentSelector) {
   this.parentSelector = parentSelector;
@@ -50,8 +50,8 @@ Cart.prototype.existProducts = function () {
       <div class="cart__payment-process">
         <p class="cart__total">Total:</p>
         <p class="cart__total-price">$${this.totalPrice()}</p>
-        <button class="cart__button-standard cart__button-standard--buy js-button-buy">Comprar</button>
-        <button class="cart__button-standard cart__button-standard--home js-button-home">Inicio</button>
+        <button class="container__button-standard container__button-standard--buy js-button-buy">Comprar</button>
+        <button class="container__button-standard container__button-standard--home js-button-home">Inicio</button>
       </div>
     `
     : `
@@ -62,26 +62,26 @@ Cart.prototype.existProducts = function () {
   `;
 };
 
-Cart.prototype.goToOrderSuccess = function() {
-  const button = this.parentElement.querySelector('.js-button-buy');
-  if(button) {
-    button.addEventListener('click', () => {
+Cart.prototype.goToOrderSuccess = function () {
+  const button = this.parentElement.querySelector(".js-button-buy");
+  if (button) {
+    button.addEventListener("click", () => {
       STORE.cart = [];
-      localStorage.setItem('cart', JSON.stringify(STORE.cart));
-      const orderSuccess = new OrderSuccess('.js-app');
+      localStorage.setItem("cart", JSON.stringify(STORE.cart));
+      const orderSuccess = new OrderSuccess(".js-app");
       orderSuccess.render();
     });
   }
-}
+};
 
-Cart.prototype.goToHome = function() {
-  const button = this.parentElement.querySelector('.js-button-home');
-  if(button) {
-    button.addEventListener('click', () => {
-      const home = new Home('.js-app', 'all');
+Cart.prototype.goToHome = function () {
+  const button = this.parentElement.querySelector(".js-button-home");
+  if (button) {
+    button.addEventListener("click", () => {
+      const home = new Home(".js-app", "all");
       home.render();
     });
   }
-}
+};
 
 export default Cart;
